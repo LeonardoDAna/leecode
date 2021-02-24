@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+        <script>
+        let rooms = [[1, 3], [3, 0, 1], [2], [0]]
+
+        var canVisitAllRooms = function (rooms) {
+
+            let visited = new Array(rooms.length).fill(false)
+            // visited[0] = true
+            let keysList = rooms[0]
+            let dfs = (x) => {
+                if (visited[x]) return
+                visited[x] = true
+                for (let n of rooms[x]) {
+                    dfs(n)
+                }
+            }
+            // console.log(visited);
+            dfs(0)
+            console.log(visited);
+            return visited.every(v => v === true)
+        };
+        canVisitAllRooms(rooms)
+    </script>
+</body>
+
+</html>
