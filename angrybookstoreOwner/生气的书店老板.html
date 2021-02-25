@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let customers = [1, 0, 1, 2, 1, 1, 7, 5]
+        // 找出三个相加起来值最大的三个下标 如上输入 则输出  [5,6,7] 13
+        function getSerial(arr) {
+            let arrLen = arr.length - 3
+            let sumArr = []
+            for (let i = 0; i <= arrLen; i++) {
+                sumArr.push({
+                    sum: arr[i] + arr[i + 1] + arr[i + 2],
+                    subscript: [i, i + 1, i + 2]
+                })
+            }
+            // console.log(Math.max(...sumArr));
+            console.log(sumArr);
+        }
+        getSerial(customers)
+    </script>
+</body>
+
+</html>
