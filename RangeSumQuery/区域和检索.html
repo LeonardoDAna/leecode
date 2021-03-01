@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 这里有个很巧妙的解体过程
+        /*
+            创建一个数组 preSum 
+            将每个位置的前缀和存到对应的位置下( 下标 + 1 ) 因为数组下标是从 0 开始 sumRange( 0, 0 )
+            后面计算数组区间( i,j )中所有数的和时就拿 preSum[j+1] 减去 preSum[i]
+        */ 
+        let arr = [-2, 0, 3, -5, 2, -1]
+
+        function NumArray(arr) {
+            let preSum = []
+            preSum[0] = 0
+            for (let i = 0; i < arr.length; i++) {
+                preSum[i + 1] = preSum[i] + arr[i]
+            }
+            console.log(preSum);
+            this.preSum = preSum
+        }
+        NumArray.prototype.sumRange = function (i, j) {
+            console.log(this.preSum[j + 1] - this.preSum[i]);
+            return this.preSum[j + 1] - this.preSum[i]
+        };
+        let a = new NumArray(arr)
+        a.sumRange(2, 4)
+    </script>
+</body>
+
+</html>
