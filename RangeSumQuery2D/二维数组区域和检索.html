@@ -25,10 +25,8 @@
                 for (let j = 0; j <= colLength; j++) arr.push(null)
                 dp.push(arr)
             }
-
             for (let i = 0; i < rowlength; i++) {
                 for (let j = 0; j < colLength; j++) {
-
                     dp[i + 1][j + 1] = dp[i + 1][j] + dp[i][j + 1] + matrix[i][j] - dp[i][j];
                     console.log(dp);
                 }
@@ -45,9 +43,9 @@
         // 输入                                  (  1,   2,    3,     3 )
         NumMatrix.prototype.sumRegion = function (row1, col1, row2, col2) {
             return this.dp[row2 + 1][col2 + 1] - //34
-                this.dp[row1][col2 + 1] - // 10
-                this.dp[row2 + 1][col1] + // 22
-                this.dp[row1][col1];
+                this.dp[row1][col2 + 1] - // 8
+                this.dp[row2 + 1][col1] + // 26
+                this.dp[row1][col1];//3
         };
         let a = new NumMatrix(matrix)
         console.log(a.sumRegion(1, 2, 3, 3));
