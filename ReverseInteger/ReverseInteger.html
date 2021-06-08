@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ReverseInteger</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  let int = -44333
+
+  function ReverseInteger(int) {
+    let rev = 0
+    let x = int
+    while (x !== 0) {
+      let digit = x % 10
+      x = ~~(x / 10)
+      rev = rev * 10 + digit
+      if (rev > Math.pow(2, 32) - 1 || rev < Math.pow(-2, 31)) {
+        return rev = 0
+      }
+    }
+    return rev
+  }
+  console.log(ReverseInteger(int));
+</script>
+
+</html>
